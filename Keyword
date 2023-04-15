@@ -1,0 +1,61 @@
+###KeywordVer0.0.1
+## Pin
+CS 0x0A
+DIN 0x0B
+CLK 0x0D
+//--------------------------------------------------
+
+### methods
+ Set();   
+ Brightness(byte brightness);   
+ Clear();   
+ Clear(int TimeDelay);   
+ Triangle(int TimeDelay);   
+ Text(char text[], int TimeDelay);   
+ NumberAndPic(int number, int TimeDelay);   
+ FullCombo(char Name[], int Number);   
+
+ 
+### debug
+ CheckChar();   
+ CheckChar(int index);   
+ CheckNumber();   
+ CheckNumber(int index);   
+ CheckPic();   
+ CheckPic(int index);   
+ 
+//----------------------------------------------------
+
+##methods
+ Set();
+    setup
+      decoding mode           OFF
+      light intensity         0
+      scan limit: all digits  ON
+      MAX7219            turn ON
+      
+ Brightness(byte brightness);
+  light intensity <0-15>
+  
+ Clear();
+ Clear(int TimeDelay);
+ 
+ Triangle(int TimeDelay);
+ 
+ Text(char text[], int TimeDelay);
+ 
+ NumberAndPic(int number, int TimeDelay);
+ 
+ FullCombo(char Name[], int pa);
+  combined
+     Triangle(int TimeDelay);
+     Text(char text[], int TimeDelay);
+     NumberAndPic(int number, int TimeDelay);
+    
+##debug
+ CheckChar();
+ CheckChar(int index);
+ CheckNumber();
+ CheckNumber(int index);
+ CheckPic();
+ CheckPic(int index);
