@@ -1,37 +1,49 @@
 #ifndef Witsanu_h
 #define Witsanu_h
-//--------------------------------------------------------
+
 //class definition
 class Witsanu
 {
   public:
     //constructor
     Witsanu(void);
-    //methods
+    
+    //setup
     void Set();
     void Brightness(byte brightness);
     void Clear();
     void Clear(int TimeDelay);
+    
+    //methods
     void Triangle(int TimeDelay);
     void Text(char text[], int TimeDelay);
     void NumberAndPic(int number, int TimeDelay);
-    void FullCombo(char Name[], int pa);
+    void FullCombo(char Name[], int Num);
+    void TextScrolling(int TimeDelay, const char *text, ...);
+    
     //debug
-    void CheckChar();
-    void CheckChar(int index);
+    void CheckCapLetter();
+    void CheckCapLetter(int index);
     void CheckNumber();
     void CheckNumber(int index);
-    void CheckPic();
-    void CheckPic(int index);
+    void CheckSign();
+    void CheckSign(int index);
+    void CheckSmallLetter();
+    void CheckSmallLetter(int index);
     
     //Feature in Future
-    //void Number(byte n);
-    //void Letter(char l);
     //void Byte(byte row, byte value);
   private:
-    //fucntion
+    //fucntion commutication
     void SendPackets(byte cmd, byte data);
     void SPI_send(byte data);
-    int str_length(char str[]) ;
+    
+    //function 
+    //int str_length(char str[]) ;//deleted
+    
+    //use in TextScrolling()
+    byte **ArrayText;//use in Funcion CopyArray, CreartArray
+    void CopyArray(const int a, const int b, byte a2[][8]);
+    int CountRealLetter(char *text);
 };
 #endif

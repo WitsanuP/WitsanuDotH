@@ -1,61 +1,111 @@
-###KeywordVer0.0.1
-## Pin
-CS 0x0A
+KeywordVer0.0.1
+<Pin>
+CS  0x0A
 DIN 0x0B
 CLK 0x0D
+
 //--------------------------------------------------
-
-### methods
- Set();   
- Brightness(byte brightness);   
- Clear();   
- Clear(int TimeDelay);   
- Triangle(int TimeDelay);   
- Text(char text[], int TimeDelay);   
- NumberAndPic(int number, int TimeDelay);   
- FullCombo(char Name[], int Number);   
-
- 
-### debug
- CheckChar();   
- CheckChar(int index);   
- CheckNumber();   
- CheckNumber(int index);   
- CheckPic();   
- CheckPic(int index);   
+    //setup
+    void Set();
+    void Brightness(byte brightness);
+    void Clear();
+    void Clear(int TimeDelay);
+    
+    //methods
+    void Triangle(int TimeDelay);
+    void Text(char text[], int TimeDelay);
+    void NumberAndPic(int number, int TimeDelay);
+    void FullCombo(char Name[], int Num);
+    void TextScrolling(int TimeDelay, const char *text, ...);
  
 //----------------------------------------------------
 
-##methods
+||----------------------||
+||         setup        ||
+||----------------------||
  Set();
     setup
-      decoding mode           OFF
-      light intensity         0
-      scan limit: all digits  ON
+      decoding mode      OFF
+      light intensity    0
+      scan limit         all digits  
       MAX7219            turn ON
-      
+      clear display
+            
  Brightness(byte brightness);
-  light intensity <0-15>
+    setting intensity
+    brightness : light intensity <0-15>
   
  Clear();
- Clear(int TimeDelay);
- 
- Triangle(int TimeDelay);
- 
- Text(char text[], int TimeDelay);
- 
- NumberAndPic(int number, int TimeDelay);
- 
- FullCombo(char Name[], int pa);
-  combined
-     Triangle(int TimeDelay);
-     Text(char text[], int TimeDelay);
-     NumberAndPic(int number, int TimeDelay);
+    Clear display
     
+ Clear(int TimeDelay);
+    Clear display 
+    TimeDelay   : TimeDelay(ms)
+    
+    
+||----------------------||
+||        methods       ||
+||----------------------||
+ Triangle(int TimeDelay);
+    Display Triangle
+    TimeDelay   : TimeDelay(ms)
+    
+ Text(char text[], int TimeDelay);
+    Display text
+    text[]      : "text"
+    TimeDelay   : TimeDelay(ms)
+    
+ NumberAndPic(int number, int TimeDelay);
+    Display number, Sign
+    number      : your number
+    TimeDelay   : TimeDelay(ms)
+    
+ FullCombo(char Name[], int Num);
+    Display triangle, name, number
+    Name[]      : "name"
+    number      : your number
+   
+  TextScrolling(int TimeDelay, const char *text, ...);
+    Scrolling text
+    TimeDelay   : Time per frame(ms)
+    text[]      : "text" //can use %s, %p %t
+            mean        value
+        %t  triangle    None
+        %s  sign        0-4
+        %p  picture     0-10
+         +-----------------------------------+
+         |  <value>     <picture>            |   
+         |     0          Heart              |    
+         |     1          Apple              |     
+         |     2          Moon               |    
+         |     3          Cat                |   
+         |     4          Pumpkin head       |            
+         |     5          Smile circle       |            
+         |     6          Flat circle        |           
+         |     7          Sad circle         |          
+         |     8          Smile square       |            
+         |     9          Flat square        |           
+         |     10         Sad square         |           
+         +-----------------------------------+
+        
+        Ex.
+            TextScrolling(150,"Hello ");
+                scrolling "Hello " with 150 time per frame(ms)
+                
+            TextScrolling(100, "%tHello1234%s", 4);
+                scrolling "<triangle>Hello<sign4>" with 100 time per frame(ms)
+                
+            TextScrolling(150, "I%pYou", 0);
+                scrolling "I<heart>You" with 150 time per frame(ms)
+                
+//----------------------------------------------------
+        
 ##debug
- CheckChar();
- CheckChar(int index);
- CheckNumber();
- CheckNumber(int index);
- CheckPic();
- CheckPic(int index);
+    void CheckCapLetter();
+    void CheckCapLetter(int index);
+    void CheckNumber();
+    void CheckNumber(int index);
+    void CheckSign();
+    void CheckSign(int index);
+    void CheckSmallLetter();
+    void CheckSmallLetter(int index);
