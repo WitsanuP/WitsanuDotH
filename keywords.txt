@@ -1,0 +1,33 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Witsanu	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+Set	KEYWORD2
+Brightness  KEYWORD2
+Clear	KEYWORD2
+Triangle	KEYWORD2
+Text	KEYWORD2
+NumberAndPic	KEYWORD2
+FullCombo	KEYWORD2
+TextScrolling	KEYWORD2
+
+######################################
+# Constants (LITERAL1)
+#######################################
+CS	LITERAL1
+DIN	LITERAL1
+CLK	LITERAL1
+LEDR	LITERAL1
+LEDY	LITERAL1
+LEDG	LITERAL1
+BUTTON1	LITERAL1
+BUTTON2	LITERAL1
