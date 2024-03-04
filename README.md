@@ -11,5 +11,9 @@ LEDG 6
 BUTTON1 2   
 BUTTON2 3   
 
+## schematic
+
+## Arduino Nano
+
 
 
