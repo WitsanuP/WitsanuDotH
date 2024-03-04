@@ -4,12 +4,12 @@
 CS  0x0A      
 DIN 0x0B   
 CLK 0x0D   
-/*
-LEDR 4  //can't pwm   
-LEDY 5  //can pwm   
-LEDG 6  //can pwm   
+
+LEDR 4     
+LEDY 5     
+LEDG 6     
 BUTTON1 2   
 BUTTON2 3   
-*/
+
 
 
